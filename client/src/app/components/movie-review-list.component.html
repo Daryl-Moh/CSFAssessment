@@ -1,0 +1,51 @@
+<h2>Search Results</h2>
+<div>
+    <table *ngFor="let reviews of movieReviews">
+        <tr>
+            <td>
+                <img src="{{reviews.image}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ reviews.reviewURL }}" target="_blank">Movie Title: {{ reviews.title }}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Rating: {{ reviews.rating }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ reviews.headline }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ reviews.summary }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Comments: {{ commentCount }}
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button (click)="postComment(reviews.title)">Comment</button>
+            </td>
+
+            <td>
+                <button (click)="goHome()">Back</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<ng-template [ngIf]="movieReviews.length == 0">
+    <div>
+        Your search produced no results
+    </div>
+</ng-template>
