@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MovieReviewService } from '../service/movie-review.service';
 import { Review } from '../model/review';
 import { HttpClient } from '@angular/common/http';
-import { UploadResult } from '../model/upload-result';
 import { firstValueFrom } from "rxjs";
 
 
@@ -51,6 +50,6 @@ export class PostCommentComponent implements OnInit, OnDestroy {
   saveComment() {
     const formVal = this.commentForm.value;
     this.movieRevSvc.saveComment(formVal);
-    this.router.navigate(['/search', this.searchValue])
+    this.router.navigate(['/search'])
   }
 }

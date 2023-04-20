@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { lastValueFrom } from "rxjs";
 import { Review } from "../model/review";
 import { Comment } from "../model/comment"
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ import { Comment } from "../model/comment"
     
     private API_URI: string = "/api";
 
-    constructor (private httpClient: HttpClient) { }
+    constructor (private httpClient: HttpClient, private router: Router) { }
 
     getMovieReviews(searchValue: string): Promise<any>{
         const params = new HttpParams()
